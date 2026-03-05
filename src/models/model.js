@@ -1,4 +1,4 @@
-import { generateConfirmationCode, month } from '../includes/helpers.js';
+import { generateConfirmationCode, month, yenToUsd } from '../includes/helpers.js';
 import { getDb as db } from './db-in-file.js';
 
 // ROUTE MODEL FUNCTIONS
@@ -172,7 +172,7 @@ export const getTicketOptionsForRoute = async (routeId) => {
     return db().ticketClasses.map(tc => ({
         class: tc.class,
         name: tc.name,
-        price: route.distance * tc.pricePerKm,
+        price: yenToUsd(route.distance * tc.pricePerKm),
         amenities: tc.amenities,
         description: tc.description
     }));
