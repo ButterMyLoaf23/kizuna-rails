@@ -1,4 +1,4 @@
-import { generateConfirmationCode } from '../includes/helpers.js';
+import { generateConfirmationCode, month } from '../includes/helpers.js';
 import { getDb as db } from './db-in-file.js';
 
 // ROUTE MODEL FUNCTIONS
@@ -144,6 +144,9 @@ export const getCompleteRouteDetails = async (routeId) => {
     const startStation = await getStationById(route.startStation);
     const endStation = await getStationById(route.endStation);
     const routeSchedules = await getSchedulesByRoute(routeId);
+
+    //I fixed the operating schedule to show the abbreviated months and not numbers
+    route.operatingMonths = route.operatingMonths.map(m => month(m));
 
     return {
         ...route,
