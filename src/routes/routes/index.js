@@ -1,7 +1,7 @@
-import { bookingPage, processBookingRequest } from './book.js';
-import confirmationPage from './confirm.js';
-import listRoutesPage from './list.js';
-import routeDetailsPage from './details.js';
+import { bookingPage, processBookingRequest } from '../routes/book.js';
+import confirmationPage from '../routes/confirm.js';
+import listRoutesPage from '../routes/list.js';
+import routeDetailsPage from '../routes/details.js';
 import { Router } from 'express';
 
 const router = Router();
