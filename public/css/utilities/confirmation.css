@@ -406,14 +406,21 @@ article.confirmation-page {
 }
 
 @media print {
+    
     article.confirmation-page {
         .confirmation-actions {
             display: none;
         }
 
+        header, nav, footer{
+        display:none;
+        }
+        
         .confirmation-header {
             background-color: white;
             border: 2px solid var(--clr-primary);
         }
+
+        
     }
 }
